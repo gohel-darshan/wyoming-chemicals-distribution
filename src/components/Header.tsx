@@ -1,0 +1,146 @@
+import { useState } from "react";
+import { Menu, X, ChevronDown, Phone, Mail, MapPin } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+  const navItems = [
+    { name: "Home", href: "#" },
+    {
+      name: "Company",
+      href: "#about",
+      dropdown: ["About Us", "Our Team", "Infrastructure"],
+    },
+    {
+      name: "Products",
+      href: "#products",
+      dropdown: [
+        "Sodium Silicate Liquid",
+        "Sodium Silicate Powder",
+        "Metasilicate Pentahydrate",
+        "Metasilicate Nonahydrate",
+      ],
+    },
+    { name: "Services", href: "#services" },
+    { name: "Blog", href: "#blog" },
+    { name: "Contact Us", href: "#contact" },
+  ];
+
+  return (
+    <>
+      {/* Top Bar */}
+      <div className="bg-primary text-primary-foreground py-2 hidden md:block">
+        <div className="container mx-auto px-4 flex justify-between items-center text-sm">
+          <div className="flex items-center gap-6">
+            <a href="tel:+919825218329" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+              <Phone className="w-4 h-4" />
+              <span>+91 98252 18329</span>
+            </a>
+            <a href="mailto:export@ankitsilicate.com" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+              <Mail className="w-4 h-4" />
+              <span>export@ankitsilicate.com</span>
+            </a>
+          </div>
+          <div className="flex items-center gap-2">
+            <MapPin className="w-4 h-4" />
+            <span>Morbi, Gujarat, India</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Header */}
+      <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-20">
+            {/* Logo */}
+            <a href="#" className="flex items-center gap-3">
+              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+                <span className="text-primary-foreground font-display font-bold text-xl">A</span>
+              </div>
+              <div>
+                <span className="font-display font-bold text-2xl text-foreground">ANKIT</span>
+                <span className="block text-xs text-primary tracking-widest uppercase">Silicate</span>
+              </div>
+            </a>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center gap-8">
+              {navItems.map((item) => (
+                <div
+                  key={item.name}
+                  className="relative"
+                  onMouseEnter={() => item.dropdown && setActiveDropdown(item.name)}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                >
+                  <a
+                    href={item.href}
+                    className="flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium py-2"
+                  >
+                    {item.name}
+                    {item.dropdown && <ChevronDown className="w-4 h-4" />}
+                  </a>
+                  {item.dropdown && activeDropdown === item.name && (
+                    <div className="absolute top-full left-0 bg-background border border-border rounded-lg shadow-lg py-2 min-w-[200px] animate-fade-in">
+                      {item.dropdown.map((subItem) => (
+                        <a
+                          key={subItem}
+                          href="#"
+                          className="block px-4 py-2 text-foreground hover:bg-secondary hover:text-primary transition-colors"
+                        >
+                          {subItem}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </nav>
+
+            {/* CTA Button */}
+            <div className="hidden lg:block">
+              <Button className="btn-primary">
+                Get Quote
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="lg:hidden p-2 text-foreground"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="lg:hidden bg-background border-t border-border animate-fade-in">
+            <nav className="container mx-auto px-4 py-4">
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="block py-3 text-foreground hover:text-primary transition-colors font-medium border-b border-border last:border-0"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </a>
+              ))}
+              <Button className="btn-primary w-full mt-4">
+                Get Quote
+              </Button>
+            </nav>
+          </div>
+        )}
+      </header>
+    </>
+  );
+};
+
+export default Header;
