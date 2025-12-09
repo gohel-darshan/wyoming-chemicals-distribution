@@ -1,31 +1,37 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, Phone, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const location = useLocation();
 
   const navItems = [
-    { name: "Home", href: "#" },
+    { name: "Home", href: "/" },
     {
       name: "Company",
-      href: "#about",
-      dropdown: ["About Us", "Our Team", "Infrastructure"],
+      href: "/about",
+      dropdown: [
+        { name: "About Us", href: "/about" },
+        { name: "Infrastructure", href: "/infrastructure" },
+        { name: "Quality", href: "/quality" },
+      ],
     },
     {
       name: "Products",
-      href: "#products",
+      href: "/products",
       dropdown: [
-        "Sodium Silicate Liquid",
-        "Sodium Silicate Powder",
-        "Metasilicate Pentahydrate",
-        "Metasilicate Nonahydrate",
+        { name: "Sodium Silicate Liquid", href: "/products" },
+        { name: "Sodium Silicate Powder", href: "/products" },
+        { name: "Metasilicate Pentahydrate", href: "/products" },
+        { name: "Metasilicate Nonahydrate", href: "/products" },
       ],
     },
-    { name: "Services", href: "#services" },
-    { name: "Blog", href: "#blog" },
-    { name: "Contact Us", href: "#contact" },
+    { name: "Services", href: "/services" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact Us", href: "/contact" },
   ];
 
   return (
@@ -55,7 +61,7 @@ const Header = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <a href="#" className="flex items-center gap-3">
+            <Link to="/" className="flex items-center gap-3">
               <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
                 <span className="text-primary-foreground font-display font-bold text-xl">A</span>
               </div>
@@ -63,7 +69,7 @@ const Header = () => {
                 <span className="font-display font-bold text-2xl text-foreground">ANKIT</span>
                 <span className="block text-xs text-primary tracking-widest uppercase">Silicate</span>
               </div>
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-8">
@@ -74,23 +80,25 @@ const Header = () => {
                   onMouseEnter={() => item.dropdown && setActiveDropdown(item.name)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
-                  <a
-                    href={item.href}
-                    className="flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium py-2"
+                  <Link
+                    to={item.href}
+                    className={`flex items-center gap-1 hover:text-primary transition-colors font-medium py-2 ${
+                      location.pathname === item.href ? "text-primary" : "text-foreground"
+                    }`}
                   >
                     {item.name}
                     {item.dropdown && <ChevronDown className="w-4 h-4" />}
-                  </a>
+                  </Link>
                   {item.dropdown && activeDropdown === item.name && (
                     <div className="absolute top-full left-0 bg-background border border-border rounded-lg shadow-lg py-2 min-w-[200px] animate-fade-in">
                       {item.dropdown.map((subItem) => (
-                        <a
-                          key={subItem}
-                          href="#"
+                        <Link
+                          key={subItem.name}
+                          to={subItem.href}
                           className="block px-4 py-2 text-foreground hover:bg-secondary hover:text-primary transition-colors"
                         >
-                          {subItem}
-                        </a>
+                          {subItem.name}
+                        </Link>
                       ))}
                     </div>
                   )}
@@ -100,12 +108,14 @@ const Header = () => {
 
             {/* CTA Button */}
             <div className="hidden lg:block">
-              <Button className="btn-primary">
-                Get Quote
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Button>
+              <Link to="/contact">
+                <Button className="btn-primary">
+                  Get Quote
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Button>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -123,18 +133,20 @@ const Header = () => {
           <div className="lg:hidden bg-background border-t border-border animate-fade-in">
             <nav className="container mx-auto px-4 py-4">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.href}
                   className="block py-3 text-foreground hover:text-primary transition-colors font-medium border-b border-border last:border-0"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
-              <Button className="btn-primary w-full mt-4">
-                Get Quote
-              </Button>
+              <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
+                <Button className="btn-primary w-full mt-4">
+                  Get Quote
+                </Button>
+              </Link>
             </nav>
           </div>
         )}
