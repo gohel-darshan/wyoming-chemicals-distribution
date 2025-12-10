@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -76,10 +77,12 @@ const HeroSection = () => {
                 <p className="text-lg text-muted-foreground mb-8 max-w-lg">
                   {slide.description}
                 </p>
-                <Button className="btn-primary group">
-                  Discover More
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                <Link to="/about">
+                  <Button className="btn-primary group">
+                    Discover More
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
               </div>
             ))}
           </div>

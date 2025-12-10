@@ -1,15 +1,38 @@
+import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 const Footer = () => {
+  const quickLinks = [
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about" },
+    { name: "Products", href: "/products" },
+    { name: "Services", href: "/services" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/contact" },
+  ];
+
+  const companyLinks = [
+    { name: "Infrastructure", href: "/infrastructure" },
+    { name: "Quality", href: "/quality" },
+  ];
+
+  const productLinks = [
+    { name: "Sodium Silicate Liquid", href: "/products" },
+    { name: "Sodium Silicate Powder", href: "/products" },
+    { name: "Metasilicate Pentahydrate", href: "/products" },
+    { name: "Metasilicate Nonahydrate", href: "/products" },
+    { name: "Sodium Orthosilicate", href: "/products" },
+  ];
+
   return (
     <footer className="bg-foreground text-background">
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div>
-            <div className="flex items-center gap-3 mb-6">
+            <Link to="/" className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
                 <span className="text-primary-foreground font-display font-bold text-xl">A</span>
               </div>
@@ -17,7 +40,7 @@ const Footer = () => {
                 <span className="font-display font-bold text-2xl">ANKIT</span>
                 <span className="block text-xs text-primary tracking-widest uppercase">Silicate</span>
               </div>
-            </div>
+            </Link>
             <p className="text-background/70 leading-relaxed mb-6">
               Established in 2018 in Morbi, Gujarat, Ankit Silicate manufactures high-quality Sodium and Potassium Silicates for industries like detergent, ceramic, foundry, and construction.
             </p>
@@ -41,11 +64,11 @@ const Footer = () => {
           <div>
             <h4 className="font-display font-semibold text-xl mb-6">Quick Links</h4>
             <ul className="space-y-3">
-              {["Home", "About Us", "Products", "Services", "Blog", "Contact"].map((link) => (
-                <li key={link}>
-                  <a href="#" className="text-background/70 hover:text-primary transition-colors">
-                    {link}
-                  </a>
+              {quickLinks.map((link) => (
+                <li key={link.name}>
+                  <Link to={link.href} className="text-background/70 hover:text-primary transition-colors">
+                    {link.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -55,17 +78,11 @@ const Footer = () => {
           <div>
             <h4 className="font-display font-semibold text-xl mb-6">Products</h4>
             <ul className="space-y-3">
-              {[
-                "Sodium Silicate Liquid",
-                "Sodium Silicate Powder",
-                "Metasilicate Pentahydrate",
-                "Metasilicate Nonahydrate",
-                "Sodium Orthosilicate",
-              ].map((product) => (
-                <li key={product}>
-                  <a href="#" className="text-background/70 hover:text-primary transition-colors">
-                    {product}
-                  </a>
+              {productLinks.map((product) => (
+                <li key={product.name}>
+                  <Link to={product.href} className="text-background/70 hover:text-primary transition-colors">
+                    {product.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -83,11 +100,15 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary" />
-                <span className="text-background/70">+91 98252 18329</span>
+                <a href="tel:+919825218329" className="text-background/70 hover:text-primary transition-colors">
+                  +91 98252 18329
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary" />
-                <span className="text-background/70">export@ankitsilicate.com</span>
+                <a href="mailto:export@ankitsilicate.com" className="text-background/70 hover:text-primary transition-colors">
+                  export@ankitsilicate.com
+                </a>
               </li>
             </ul>
 
@@ -115,12 +136,12 @@ const Footer = () => {
               © 2024 Ankit Silicate. All rights reserved.
             </p>
             <div className="flex gap-6">
-              <a href="#" className="text-background/60 hover:text-primary text-sm transition-colors">
+              <Link to="/about" className="text-background/60 hover:text-primary text-sm transition-colors">
                 Privacy Policy
-              </a>
-              <a href="#" className="text-background/60 hover:text-primary text-sm transition-colors">
+              </Link>
+              <Link to="/about" className="text-background/60 hover:text-primary text-sm transition-colors">
                 Terms of Service
-              </a>
+              </Link>
             </div>
           </div>
         </div>
