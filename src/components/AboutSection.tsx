@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -57,10 +58,12 @@ const AboutSection = () => {
               ))}
             </ul>
 
-            <Button className="btn-primary group">
-              Discover More
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <Link to="/about">
+              <Button className="btn-primary group">
+                Discover More
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

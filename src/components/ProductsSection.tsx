@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -76,10 +77,12 @@ const ProductsSection = () => {
           <h2 className="section-title mb-4">
             Delivering Purity and Performance in Every Product
           </h2>
-          <Button variant="outline" className="btn-outline">
-            View All Products
-            <ArrowRight className="w-4 h-4" />
-          </Button>
+          <Link to="/products">
+            <Button variant="outline" className="btn-outline">
+              View All Products
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </Link>
         </div>
 
         <div className="grid lg:grid-cols-12 gap-8">
@@ -128,10 +131,12 @@ const ProductsSection = () => {
                     </li>
                   ))}
                 </ul>
-                <Button className="btn-primary group">
-                  Read More
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                <Link to="/products">
+                  <Button className="btn-primary group">
+                    Read More
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
