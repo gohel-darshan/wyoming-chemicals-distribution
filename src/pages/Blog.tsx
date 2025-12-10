@@ -4,65 +4,9 @@ import PageBanner from "@/components/PageBanner";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Calendar, User, Clock } from "lucide-react";
+import { blogPosts } from "@/data/blogs";
 
 const Blog = () => {
-  const blogPosts = [
-    {
-      id: "sodium-silicate-applications",
-      title: "Understanding Sodium Silicate Applications in Modern Industry",
-      excerpt: "Discover the versatile applications of sodium silicate across various industries, from detergent manufacturing to construction chemicals.",
-      author: "Ankit Silicate Team",
-      date: "December 5, 2024",
-      readTime: "5 min read",
-      category: "Industry Insights"
-    },
-    {
-      id: "quality-control-silicate",
-      title: "Quality Control in Silicate Manufacturing: Best Practices",
-      excerpt: "Learn about the essential quality control measures that ensure consistent, high-quality sodium silicate products.",
-      author: "Quality Team",
-      date: "November 28, 2024",
-      readTime: "4 min read",
-      category: "Quality"
-    },
-    {
-      id: "silicate-detergent-industry",
-      title: "The Role of Silicates in the Detergent Industry",
-      excerpt: "Explore how sodium silicate serves as a crucial ingredient in modern detergent formulations and cleaning products.",
-      author: "R&D Department",
-      date: "November 15, 2024",
-      readTime: "6 min read",
-      category: "Applications"
-    },
-    {
-      id: "sustainable-manufacturing",
-      title: "Sustainable Manufacturing Practices in Chemical Industry",
-      excerpt: "Our commitment to sustainable manufacturing and environmental responsibility in silicate production.",
-      author: "Ankit Silicate Team",
-      date: "November 1, 2024",
-      readTime: "4 min read",
-      category: "Sustainability"
-    },
-    {
-      id: "ceramic-industry-silicates",
-      title: "Sodium Silicate in Ceramic Production: A Complete Guide",
-      excerpt: "How sodium silicate contributes to ceramic manufacturing processes and improves product quality.",
-      author: "Technical Team",
-      date: "October 20, 2024",
-      readTime: "7 min read",
-      category: "Applications"
-    },
-    {
-      id: "export-quality-standards",
-      title: "Meeting International Quality Standards for Export",
-      excerpt: "Understanding the quality standards and certifications required for silicate exports to global markets.",
-      author: "Export Division",
-      date: "October 8, 2024",
-      readTime: "5 min read",
-      category: "Export"
-    },
-  ];
-
   return (
     <div className="min-h-screen">
       <Header />
@@ -94,8 +38,8 @@ const Blog = () => {
         <section className="py-16 bg-secondary">
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {blogPosts.map((post, index) => (
-                <article key={index} className="bg-background rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all group">
+              {blogPosts.map((post) => (
+                <article key={post.id} className="bg-background rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all group">
                   <div className="aspect-video bg-primary/10 relative">
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="text-6xl font-display font-bold text-primary/20">
