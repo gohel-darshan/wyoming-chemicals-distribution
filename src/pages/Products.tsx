@@ -30,7 +30,14 @@ const Products = () => {
         />
 
         {/* Products Introduction */}
-        <section className="py-16 bg-background">
+        <section 
+          className="py-16 relative"
+          style={{
+            backgroundImage: 'url("/background-image.png")',
+            backgroundSize: "300px 300px",
+            backgroundRepeat: "repeat",
+          }}
+        >
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <span className="text-primary font-medium uppercase tracking-wider text-sm">Our Products</span>
@@ -45,7 +52,14 @@ const Products = () => {
         </section>
 
         {/* Products Grid */}
-        <section className="py-16 bg-secondary">
+        <section 
+          className="py-16 relative"
+          style={{
+            backgroundImage: 'url("/background-image.png")',
+            backgroundSize: "300px 300px",
+            backgroundRepeat: "repeat",
+          }}
+        >
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {products.map((product) => {
@@ -90,23 +104,7 @@ const Products = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-16 bg-primary">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
-              Need Custom Specifications?
-            </h2>
-            <p className="text-primary-foreground/80 max-w-2xl mx-auto mb-8">
-              We can customize our products to meet your specific requirements. Contact our technical team to discuss your needs.
-            </p>
-            <Link to="/contact">
-              <Button variant="secondary" size="lg">
-                Request a Quote
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
-            </Link>
-          </div>
-        </section>
+        
       </main>
       <Footer />
     </div>

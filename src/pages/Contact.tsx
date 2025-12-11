@@ -64,7 +64,14 @@ const Contact = () => {
         />
 
         {/* Contact Info Cards */}
-        <section className="py-16 bg-background">
+        <section 
+          className="py-16 relative"
+          style={{
+            backgroundImage: 'url("/background-image.png")',
+            backgroundSize: "300px 300px",
+            backgroundRepeat: "repeat",
+          }}
+        >
           <div className="container mx-auto px-4">
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {contactInfo.map((info, index) => (
@@ -85,7 +92,14 @@ const Contact = () => {
         </section>
 
         {/* Contact Form & Map */}
-        <section className="py-16 bg-secondary">
+        <section 
+          className="py-16 relative"
+          style={{
+            backgroundImage: 'url("/background-image.png")',
+            backgroundSize: "300px 300px",
+            backgroundRepeat: "repeat",
+          }}
+        >
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12">
               {/* Contact Form */}
@@ -180,7 +194,7 @@ const Contact = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-16 bg-primary">
+        {/* <section className="py-16 bg-primary">
           <div className="container mx-auto px-4 text-center">
             <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
               Ready to Get Started?
@@ -203,7 +217,7 @@ const Contact = () => {
               </a>
             </div>
           </div>
-        </section>
+        </section> */}
       </main>
       <Footer />
     </div>

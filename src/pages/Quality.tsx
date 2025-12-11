@@ -74,7 +74,14 @@ const Quality = () => {
         />
 
         {/* Quality Commitment */}
-        <section className="py-16 md:py-24 bg-background">
+        <section 
+          className="py-16 md:py-24 relative"
+          style={{
+            backgroundImage: 'url("/background-image.png")',
+            backgroundSize: "300px 300px",
+            backgroundRepeat: "repeat",
+          }}
+        >
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
@@ -117,7 +124,14 @@ const Quality = () => {
         </section>
 
         {/* Certifications */}
-        <section className="py-16 md:py-24 bg-secondary">
+        <section 
+          className="py-16 md:py-24 relative"
+          style={{
+            backgroundImage: 'url("/background-image.png")',
+            backgroundSize: "300px 300px",
+            backgroundRepeat: "repeat",
+          }}
+        >
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <span className="text-primary font-medium uppercase tracking-wider text-sm">Certifications</span>
@@ -141,7 +155,14 @@ const Quality = () => {
         </section>
 
         {/* Quality Control Process */}
-        <section className="py-16 md:py-24 bg-background">
+        <section 
+          className="py-16 md:py-24 relative"
+          style={{
+            backgroundImage: 'url("/background-image.png")',
+            backgroundSize: "300px 300px",
+            backgroundRepeat: "repeat",
+          }}
+        >
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <span className="text-primary font-medium uppercase tracking-wider text-sm">QC Process</span>
@@ -167,7 +188,14 @@ const Quality = () => {
         </section>
 
         {/* Testing Parameters */}
-        <section className="py-16 md:py-24 bg-secondary">
+        <section 
+          className="py-16 md:py-24 relative"
+          style={{
+            backgroundImage: 'url("/background-image.png")',
+            backgroundSize: "300px 300px",
+            backgroundRepeat: "repeat",
+          }}
+        >
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <span className="text-primary font-medium uppercase tracking-wider text-sm">Testing Parameters</span>

@@ -20,7 +20,14 @@ const Blog = () => {
         />
 
         {/* Blog Introduction */}
-        <section className="py-16 bg-background">
+        <section 
+          className="py-16 relative"
+          style={{
+            backgroundImage: 'url("/background-image.png")',
+            backgroundSize: "300px 300px",
+            backgroundRepeat: "repeat",
+          }}
+        >
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <span className="text-primary font-medium uppercase tracking-wider text-sm">Our Blog</span>
@@ -35,7 +42,14 @@ const Blog = () => {
         </section>
 
         {/* Blog Grid */}
-        <section className="py-16 bg-secondary">
+        <section 
+          className="py-16 relative"
+          style={{
+            backgroundImage: 'url("/background-image.png")',
+            backgroundSize: "300px 300px",
+            backgroundRepeat: "repeat",
+          }}
+        >
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {blogPosts.map((post) => (
@@ -84,27 +98,7 @@ const Blog = () => {
           </div>
         </section>
 
-        {/* Newsletter Section */}
-        <section className="py-16 bg-primary">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
-              Subscribe to Our Newsletter
-            </h2>
-            <p className="text-primary-foreground/80 max-w-2xl mx-auto mb-8">
-              Get the latest industry insights, product updates, and company news delivered directly to your inbox.
-            </p>
-            <div className="max-w-md mx-auto flex gap-4">
-              <input 
-                type="email" 
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-lg bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/60 focus:outline-none focus:border-primary-foreground/50"
-              />
-              <Button variant="secondary">
-                Subscribe
-              </Button>
-            </div>
-          </div>
-        </section>
+        
       </main>
       <Footer />
     </div>

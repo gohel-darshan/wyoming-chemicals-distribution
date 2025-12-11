@@ -20,7 +20,14 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <section className="py-16 bg-background">
+    <section 
+      className="py-16 relative"
+      style={{
+        backgroundImage: 'url("/background-image.png")',
+        backgroundSize: "300px 300px",
+        backgroundRepeat: "repeat",
+      }}
+    >
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8">
           {features.map((feature, index) => (

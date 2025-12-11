@@ -127,7 +127,14 @@ const Infrastructure = () => {
         />
 
         {/* Overview */}
-        <section className="py-16 md:py-24 bg-background">
+        <section 
+          className="py-16 md:py-24 relative"
+          style={{
+            backgroundImage: 'url("/background-image.png")',
+            backgroundSize: "300px 300px",
+            backgroundRepeat: "repeat",
+          }}
+        >
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
@@ -161,7 +168,14 @@ const Infrastructure = () => {
         </section>
 
         {/* Facilities Grid */}
-        <section className="py-16 md:py-24 bg-secondary">
+        <section 
+          className="py-16 md:py-24 relative"
+          style={{
+            backgroundImage: 'url("/background-image.png")',
+            backgroundSize: "300px 300px",
+            backgroundRepeat: "repeat",
+          }}
+        >
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <span className="text-primary font-medium uppercase tracking-wider text-sm">Key Facilities</span>
@@ -187,7 +201,14 @@ const Infrastructure = () => {
         </section>
 
         {/* Production Process */}
-        <section className="py-16 md:py-24 bg-background">
+        <section 
+          className="py-16 md:py-24 relative"
+          style={{
+            backgroundImage: 'url("/background-image.png")',
+            backgroundSize: "300px 300px",
+            backgroundRepeat: "repeat",
+          }}
+        >
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <span className="text-primary font-medium uppercase tracking-wider text-sm">Production Process</span>
@@ -227,7 +248,14 @@ const Infrastructure = () => {
         </section>
 
         {/* Equipment List */}
-        <section className="py-16 md:py-24 bg-secondary">
+        <section 
+          className="py-16 md:py-24 relative"
+          style={{
+            backgroundImage: 'url("/background-image.png")',
+            backgroundSize: "300px 300px",
+            backgroundRepeat: "repeat",
+          }}
+        >
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
@@ -258,7 +286,14 @@ const Infrastructure = () => {
         </section>
 
         {/* Quality Commitment */}
-        <section className="py-16 md:py-24 bg-background">
+        <section 
+          className="py-16 md:py-24 relative"
+          style={{
+            backgroundImage: 'url("/background-image.png")',
+            backgroundSize: "300px 300px",
+            backgroundRepeat: "repeat",
+          }}
+        >
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-8">

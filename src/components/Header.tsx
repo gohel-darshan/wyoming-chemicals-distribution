@@ -15,6 +15,9 @@ const Header = () => {
       href: "/about",
       dropdown: [
         { name: "About Us", href: "/about" },
+        { name: "Career", href: "/career" },
+        { name: "Sustainability", href: "/sustainability" },
+        { name: "Certifications", href: "/certifications" },
         { name: "Infrastructure", href: "/infrastructure" },
         { name: "Quality", href: "/quality" },
       ],

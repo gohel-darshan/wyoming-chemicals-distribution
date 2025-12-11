@@ -12,7 +12,15 @@ const features = [
 
 const AboutSection = () => {
   return (
-    <section id="about" className="section-padding bg-secondary">
+    <section 
+      id="about" 
+      className="section-padding relative"
+      style={{
+        backgroundImage: 'url("/background-image.png")',
+        backgroundSize: "300px 300px",
+        backgroundRepeat: "repeat",
+      }}
+    >
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Image */}

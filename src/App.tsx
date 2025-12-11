@@ -10,6 +10,9 @@ import ProductDetail from "./pages/ProductDetail";
 import Services from "./pages/Services";
 import Infrastructure from "./pages/Infrastructure";
 import Quality from "./pages/Quality";
+import Sustainability from "./pages/Sustainability";
+import Certifications from "./pages/Certifications";
+import Career from "./pages/Career";
 import Blog from "./pages/Blog";
 import BlogDetail from "./pages/BlogDetail";
 import Contact from "./pages/Contact";
@@ -22,7 +25,12 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true,
+        }}
+      >
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
@@ -31,6 +39,9 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/infrastructure" element={<Infrastructure />} />
           <Route path="/quality" element={<Quality />} />
+          <Route path="/sustainability" element={<Sustainability />} />
+          <Route path="/certifications" element={<Certifications />} />
+          <Route path="/career" element={<Career />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:blogId" element={<BlogDetail />} />
           <Route path="/contact" element={<Contact />} />
